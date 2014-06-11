@@ -1,0 +1,12 @@
+{
+  "name": "nechifor-index",
+  "version": "0.0.1",
+  "author": "Paul Nechifor <paul@nechifor.net> (http://nechifor.net/)",
+  "scripts": {
+    "build": "intercessor"
+  },
+  "dependencies": {
+    "intercessor": ">=0.0.3"
+  },
+  "license": "MIT"
+}
