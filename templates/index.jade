@@ -1,1 +1,195 @@
-p= varName
+mixin description
+  .title
+    h1= app.title
+    h2.sub coder · engineer
+  .container
+    .row
+      .left
+        .portrait
+          img(src='/s/portret.jpg', alt=app.title)
+      .right
+        p
+          | Hello, I’m a passionate developer and engineer from Iași, Romania.
+          | I’ve been writing side projects since I’ve started programming.
+          | I’m a fast learner and I like to take on challenging projects
+          | with other experienced programmers to further develop my skills and leave
+          | behind beautiful projects.
+          | I believe good code can be written in any language. I have an eye out for detail
+          | and precision in everything I do.
+        ul#quick-contact
+          li
+            a(href='mailto:paul@nechifor.net', title='email address')
+              i.si-mail
+          li
+            a(href='https://github.com/paul-nechifor', title='GitHub account')
+              i.si-github
+          li
+            a(href='http://www.linkedin.com/pub/paul-nechifor/6a/531/763', title='LinkedIn profile')
+              i.si-linkedin
+          li.hidden
+            a(href='http://facebook.com/paul.nechifor', title='Facebook page')
+              i.si-facebook
+          li.hidden
+            a(href='skype:paul.r.nechifor?call', title='Skype account')
+              i.si-skype
+          li.hidden
+            a(href='http://instagram.com/paulnechifor', title='Instagram gallery')
+              i.si-instagram
+          li.hidden
+            a(href='https://www.youtube.com/user/PaulNechifor', title='YouTube channel')
+              i.si-youtube
+          li.hidden
+            a(href='https://twitter.com/PaulNechifor', title='Twitter account')
+              i.si-twitter
+          li.hidden
+            a(href='http://blog.paul.nechifor.net', title='Tumblr blog')
+              i.si-tumblr
+          li.hidden
+            a(href='http://stackoverflow.com/users/2872108/paul-nechifor', title='Stack Overflow account')
+              i.si-stackoverflow
+          li#expand-quick-contact
+            a »
+mixin projects
+  a#projects.internal
+  h2 Projects
+  .container
+    p.desc A few of my bigger open source projects. I write
+      | new things all the time
+  .projects
+    each p in info.projects.list
+      .project
+        h3= p.name
+          span.links
+          a(href='#')
+            img(src='/s/project/' + p.code + '.png', alt=p.name + ' screenshot')
+          p= p.desc
+  .buttons
+    p
+      a#show-projects-btn.btn.primary Show more projects
+    p
+      a.btn(href='https://github.com/paul-nechifor?tab=repositories') View all my repos
+
+mixin interests
+  a#interests.internal
+  h2 Interests
+  .container
+    p.desc
+      | Things I’ve done in the past and liked and would be
+      | interested in exploring further. If you’re interested in something
+      | similar (big co and startup alike) go ahead and contact me.
+    ul
+      li
+        strong Network communication protocols
+        | .
+      li
+        strong 3D graphics on the web
+        | : use of WebGL for extending the possibilities of
+        | meaningful web communication (not gimmicky stuff) like mapping, analysis tools, more
+        | immersive previews than simple photos.
+      li
+        strong Digital publishing with good typography
+        | : publication of content that builds and improves
+        | on classic typography. Much of current publishing is subpar to dead tree typography.
+      li
+        strong Natural language correction tools
+        | : practical (web?) NLP tools that
+        | correct text beyond simple spell checkers.
+      li
+        strong Clear designs
+        | : unobtrusive design that focuses on the content and its
+        | navigation and manipulation.
+      li
+        strong AI game algorithms
+        | : From complex algorithms
+        | for simple pen and paper games to writing bots for complex games.
+      li
+        strong Programming languages
+        | : I don’t think enough languages exist.
+        | There is room for improvement especially in non-general purpose languages.
+
+mixin contact
+  a#contact.internal
+  h2 Contact
+  .container
+    p.desc
+      | You should contact me for any reason relating to my
+      | work and interests. Below is where I currently live.
+  ul.contact-icons
+    li
+      a(href='mailto:paul@nechifor.net', title='email address')
+        i.si-mail
+    li
+      a(href='https://github.com/paul-nechifor', title='GitHub account')
+        i.si-github
+    li
+      a(href='http://www.linkedin.com/pub/paul-nechifor/6a/531/763', title='LinkedIn profile')
+        i.si-linkedin
+    li
+      a(href='http://facebook.com/paul.nechifor', title='Facebook page')
+        i.si-facebook
+  ul.lesser.contact-icons
+    li
+      a(href='skype:paul.r.nechifor?call', title='Skype account')
+        i.si-skype
+    li
+      a(href='http://instagram.com/paulnechifor', title='Instagram gallery')
+        i.si-instagram
+    li
+      a(href='https://www.youtube.com/user/PaulNechifor', title='YouTube channel')
+        i.si-youtube
+    li
+      a(href='https://twitter.com/PaulNechifor', title='Twitter account')
+        i.si-twitter
+    li
+      a(href='http://blog.paul.nechifor.net', title='Tumblr blog')
+        i.si-tumblr
+    li
+      a(href='http://stackoverflow.com/users/2872108/paul-nechifor', title='Stack Overflow account')
+        i.si-stackoverflow
+  .clear-both
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title= app.title
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext')
+    link(rel='stylesheet', href='/s/fontello/css/fontello.css')
+    link(rel='stylesheet', href='/s/css/app.css')
+    link(rel='shortcut icon', href='/s/favicon.ico', type='image/x-icon')
+    link(rel='apple-touch-icon', href='/s/favicon152.png')
+    meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=0.25')
+  body
+    nav
+      .container
+        .all-menu
+          .activate
+            i.si-menu
+          ul#nav-links
+            li
+              a(href='#projects') Projects
+            li
+              a(href='#interests') Interests
+            li
+              a(href='#contact') Contact
+            li
+              a(href='http://blog.paul.nechifor.net') Blog
+        h2.self
+          a(href='#')= app.title
+
+    section#description
+      +description()
+    section#s-projects
+      +projects()
+    section#s-interests
+      +interests()
+    section#s-contact
+      +contact()
+    section#map-location
+      #map-canvas
+    footer
+      p © 2013–2014
+        = ' ' + app.title
+
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(src='/s/js/client.js')

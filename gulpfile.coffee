@@ -1,9 +1,20 @@
 gulp = require 'gulp'
 jade = require 'gulp-jade'
+CvInfo = require 'cv-info'
+app = require './manifest'
 
-gulp.task 'templates', ->
+# Not public yet.
+INFO_FILE = '/home/p/pro/nechifor-info/info.yaml'
+
+info = new CvInfo.Info
+
+gulp.task 'load-info', (cb) ->
+  info.loadFromFile INFO_FILE, cb
+
+gulp.task 'templates', ['load-info'], ->
   locals =
-    varName: 'value'
+    info: info
+    app: app
   gulp.src './templates/index.jade'
   .pipe jade locals: locals
   .pipe gulp.dest './html'
