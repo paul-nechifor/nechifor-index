@@ -61,7 +61,7 @@ mixin projects
         h3= p.name
           span.links
           a(href='#')
-            img(src='/s/project/' + p.code + '.png', alt=p.name + ' screenshot')
+            img(src='/s/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
           p= p.desc
   .buttons
     p
