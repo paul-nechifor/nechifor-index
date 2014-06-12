@@ -52,11 +52,19 @@ mixin description
 mixin projects
   a#projects.internal
   h2 Projects
+  - var icons = [];
+  - icons['blog'] = 'si-doc-text-inv';
+  - icons['github'] = 'si-github';
+  - icons['report'] = 'si-doc-text-inv';
+  - icons['youtube'] = 'si-youtube';
   .projects
     each p in info.projects.list
       .project
         h3= p.name
           span.links
+            each link in p.linkList
+              a(href=link.url)
+                i(class=icons[link.type])
           a(href='#')
             img(src='/s/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
           p= p.desc
