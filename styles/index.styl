@@ -270,9 +270,9 @@ a.internal {
 
 
 .projects {
-  display: table;
-  width: 800px;
-  margin: 45px auto 0 auto;
+//  display: table;
+//  width: 800px;
+//  margin: 45px auto 0 auto;
 }
 
 .project-row {
@@ -283,14 +283,28 @@ a.internal {
   display: none;
 }
 
-.project {
-  display: row;
-  margin-bottom: 40px;
-  width: 370px;
-  float: left;
-}
+.project
+  display row
+  margin-bottom 40px
+  width 360px
+  height 318px
+  float left
 
-.project:first-child { margin-right: 60px; }
+@media (min-width: 800px)
+  .project
+    margin 0 20px
+  .projects
+    width 800px
+    margin 0 auto
+
+@media (min-width: 1200px)
+  .projects
+    width 1200px
+
+@media (min-width: 1600px)
+  .projects
+    width 1600px
+
 .project img { width: 100%; margin: 12px 0 10px;}
 .project h3 { font-size: 24px; font-weight: bold;}
 .project h3 .links a {
