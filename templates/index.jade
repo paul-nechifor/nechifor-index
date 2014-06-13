@@ -1,3 +1,11 @@
+- function getIcon(name) {
+-   var special = {};
+-   special.blog = 'si-doc-text-inv';
+-   special.email = 'si-mail';
+-   special.report = 'si-doc-text-inv';
+-   return special[name] ? special[name] : 'si-' + name;
+- }
+
 mixin description
   .title
     h1= app.title
@@ -17,46 +25,19 @@ mixin description
           | I believe good code can be written in any language. I have an eye out for detail
           | and precision in everything I do.
         ul#quick-contact
-          li
-            a(href='mailto:paul@nechifor.net', title='email address')
-              i.si-mail
-          li
-            a(href='https://github.com/paul-nechifor', title='GitHub account')
-              i.si-github
-          li
-            a(href='http://www.linkedin.com/pub/paul-nechifor/6a/531/763', title='LinkedIn profile')
-              i.si-linkedin
-          li.hidden
-            a(href='http://facebook.com/paul.nechifor', title='Facebook page')
-              i.si-facebook
-          li.hidden
-            a(href='skype:paul.r.nechifor?call', title='Skype account')
-              i.si-skype
-          li.hidden
-            a(href='http://instagram.com/paulnechifor', title='Instagram gallery')
-              i.si-instagram
-          li.hidden
-            a(href='https://www.youtube.com/user/PaulNechifor', title='YouTube channel')
-              i.si-youtube
-          li.hidden
-            a(href='https://twitter.com/PaulNechifor', title='Twitter account')
-              i.si-twitter
-          li.hidden
-            a(href='http://blog.paul.nechifor.net', title='Tumblr blog')
-              i.si-tumblr
-          li.hidden
-            a(href='http://stackoverflow.com/users/2872108/paul-nechifor', title='Stack Overflow account')
-              i.si-stackoverflow
-          li#expand-quick-contact
-            a »
+          - var filter = function (c) { return c.type() !== 'homepage'};
+          - var list = info.contact.list.filter(filter);
+          - var nShow = 3;
+          each c, i in list
+            li(class=(i >= nShow ? 'hidden' : undefined))
+              a(href=c.url(), title=c.description())
+                i(class=getIcon(c.type()))
+          if list.length > nShow
+            li#expand-quick-contact
+              a »
 mixin projects
   a#projects.internal
   h2 Projects
-  - var icons = [];
-  - icons['blog'] = 'si-doc-text-inv';
-  - icons['github'] = 'si-github';
-  - icons['report'] = 'si-doc-text-inv';
-  - icons['youtube'] = 'si-youtube';
   .projects
     each p in info.projects.list
       .project
@@ -64,7 +45,7 @@ mixin projects
           span.links
             each link in p.linkList
               a(href=link.url)
-                i(class=icons[link.type])
+                i(class=getIcon(link.type))
         a(href='#')
           img(src='/s/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
         p= p.desc
@@ -119,38 +100,20 @@ mixin contact
     p.desc
       | You should contact me for any reason relating to my
       | work and interests.
+  - var filter = function (c) { return c.type() !== 'homepage'};
+  - var list = info.contact.list.filter(filter);
+  - var major = list.slice(0, 4);
+  - var minor = list.slice(4);
   ul.contact-icons
-    li
-      a(href='mailto:paul@nechifor.net', title='email address')
-        i.si-mail
-    li
-      a(href='https://github.com/paul-nechifor', title='GitHub account')
-        i.si-github
-    li
-      a(href='http://www.linkedin.com/pub/paul-nechifor/6a/531/763', title='LinkedIn profile')
-        i.si-linkedin
-    li
-      a(href='http://facebook.com/paul.nechifor', title='Facebook page')
-        i.si-facebook
+    each c in major
+      li
+        a(href=c.url(), title=c.description())
+          i(class=getIcon(c.type()))
   ul.lesser.contact-icons
-    li
-      a(href='skype:paul.r.nechifor?call', title='Skype account')
-        i.si-skype
-    li
-      a(href='http://instagram.com/paulnechifor', title='Instagram gallery')
-        i.si-instagram
-    li
-      a(href='https://www.youtube.com/user/PaulNechifor', title='YouTube channel')
-        i.si-youtube
-    li
-      a(href='https://twitter.com/PaulNechifor', title='Twitter account')
-        i.si-twitter
-    li
-      a(href='http://blog.paul.nechifor.net', title='Tumblr blog')
-        i.si-tumblr
-    li
-      a(href='http://stackoverflow.com/users/2872108/paul-nechifor', title='Stack Overflow account')
-        i.si-stackoverflow
+    each c in minor
+      li
+        a(href=c.url(), title=c.description())
+          i(class=getIcon(c.type()))
   .clear
 
 doctype html
