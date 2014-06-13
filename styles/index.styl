@@ -38,9 +38,9 @@ a
   text-decoration none
   color #37AD8E
   cursor pointer
-  &.internal
-    position relative
-    top -100px
+a.internal
+  position relative
+  top -100px
 em
   font-style italic
 strong
@@ -50,6 +50,10 @@ p, li, td
   font-weight 300
   line-height 1.4
   margin-bottom 10px
+  @media (max-width: 479px)
+    font-size 16px
+.clear
+  clear both
 .btn
   font-size 18px
   font-weight 400
@@ -71,6 +75,46 @@ p, li, td
 .container, table
   width 800px
   margin 0 auto
+  @media (max-width: 767px)
+    width auto
+    padding 0 10px
+    .left, .right
+      width 100%
+section
+  padding 50px 0 50px 0
+  @media (max-width: 767px)
+    padding 30px 0 30px 0
+  &:nth-child(2n)
+    background-color #eee
+  h2
+    text-transform uppercase
+    font-size 28px
+    font-weight 700
+    margin-bottom 40px
+    @media (max-width: 767px)
+      margin-bottom 20px
+    text-align center
+    color #323A40
+  ul
+    list-style square
+.title
+  margin-bottom 60px
+  @media (max-width: 767px)
+    margin-bottom 40px
+  h1
+    font-size 60px
+    font-weight 700
+    text-align center
+    text-transform uppercase
+    margin-bottom 14px
+    color #FFF
+  h2
+    font-size 28px
+    font-weight 300
+    text-align center
+    text-transform lowercase
+
+// Navigation
 nav
   background-color #323A40
   color #eee
@@ -102,33 +146,41 @@ nav
       margin-right 0
   h2
     font-size 20px
-section
-  padding 50px 0 50px 0
-  &:nth-child(2n)
-    background-color #eee
-  h2
-    text-transform uppercase
-    font-size 28px
-    font-weight 700
-    margin-bottom 40px
-    text-align center
-    color #323A40
-  ul
-    list-style square
-.title
-  margin-bottom 60px
-  h1
-    font-size 60px
-    font-weight 700
-    text-align center
-    text-transform uppercase
-    margin-bottom 14px
-    color #FFF
-  h2
-    font-size 28px
-    font-weight 300
-    text-align center
-    text-transform lowercase
+  // Hide menu icon on big devices.
+  @media (min-width: 768px)
+    .all-menu .activate
+      display none
+  @media (max-width: 767px)
+    ul
+      margin 60px 0 0 0
+    li
+      display block
+      font-size 14px
+      margin 0
+      font-size 18px
+      a
+        height 30px
+        line-height 30px
+        padding 10px 30px
+    li:last-child a
+      padding-bottom 20px
+    #nav-links
+      display none
+    .all-menu
+      position absolute
+      top 0
+      right 0
+      .activate
+        font-size 30px
+        text-align right
+        line-height 60px
+        height 60px
+        padding 0 10px
+      &:hover
+        #nav-links
+          display block
+
+// Description
 #description
   padding-top 110px
   background-image url('../cover.jpg')
@@ -137,21 +189,32 @@ section
   background-repeat no-repeat
   p
     font-weight 400
+  p, h1, h2
+    color #FFF
   .container
     display table
   .row
     display table-row
-#description p, #description h1, #description h2
-  color #FFF
-#description .row .left, #description .row .right
-  display table-cell
-  vertical-align middle
-.container
-  .left
-    width 250px
-  .right
-    width 550px
-    text-align left
+    .left, .right
+      display table-cell
+      vertical-align middle
+    .left
+      width 250px
+    .right
+      width 550px
+      text-align left
+  @media (max-width: 767px)
+    padding-top 90px
+    .container
+      display block
+    .row
+      display block
+      .left, .right
+        display block
+        margin 0 auto
+      .right
+        width auto
+        margin-top 20px
 .portrait
   background-image url('../portret.jpg')
   background-repeat no-repeat
@@ -164,9 +227,14 @@ section
   background-size 200px 200px
   img
     display none
+  @media (max-width: 767px)
+    margin 0 auto
 #quick-contact
   margin-top 10px
   font-size 20px
+  @media (max-width: 479px)
+    a
+      font-size 20px
   li
     display inline-block
     a
@@ -182,9 +250,12 @@ section
         background-color #28816A
   .hidden
     display none
-.clear
-  clear both
+@media (max-width: 479px)
+  #expand-quick-contact  a
+    display inline-block
+    width 20px
 
+// Projects
 #s-projects
   .buttons
     text-align center
@@ -219,20 +290,19 @@ section
     .projects
       width 1600px
 
-@media only screen and (max-width: 767px)
-  .projects
-    width 100%
-  .project
-    margin-bottom 40px
-    width 100%
-    float none
-    &:last-child
-      margin-left 0
-  .project h3, .project p
-    padding-left 10px
-    padding-right 10px
+  @media (max-width: 767px)
+    .projects
+      width 100%
+    .project
+      margin-bottom 40px
+      width 100%
+      height auto
+      float none
+      h3, p
+        padding-left 10px
+        padding-right 10px
 
-/* Contact */
+// Contact
 .contact-icons
   margin 0
   text-align center
@@ -254,7 +324,7 @@ section
       border-radius 3px
       -webkit-border-radius 3px
       -moz-border-radius 3px
-  .lesser li a
+  &.lesser li a
     font-size 20px
     width 40px
     height 40px
@@ -277,75 +347,3 @@ footer
   p
     margin-bottom 0
     font-size 14px
-
-/* Devices with big screens. */
-@media only screen and (min-width: 768px)
-  .all-menu .activate
-    display none
-
-/* NOT Devices with big screens. */
-@media only screen and (max-width: 767px)
-  nav
-    li
-      display block
-      font-size 14px
-      margin 0
-      font-size 18px
-      a
-        height 30px
-        line-height 30px
-        padding 10px 30px
-      &:last-child
-        a
-          padding-bottom 20px
-    ul
-      margin 60px 0 0 0
-  #nav-links
-    display none
-  .all-menu
-    position absolute
-    top 0
-    right 0
-    .activate
-      font-size 30px
-      text-align right
-      line-height 60px
-      height 60px
-      padding 0 10px
-    &:hover
-      #nav-links
-        display block
-  section
-    padding 30px 0 30px 0
-    h2
-      margin-bottom 20px
-  #description
-    padding-top 90px
-    .container
-      display block
-    .row
-      display block
-      .right
-        width auto
-        margin-top 20px
-  .title
-    margin-bottom 40px
-  #description .row .left, #description .row .right
-    display block
-    margin 0 auto
-  .container, table
-    width auto
-    padding 0 10px
-  .container .left, .container .right
-    width 100%
-  .portrait
-    margin 0 auto
-
-@media only screen and (max-width: 479px)
-  p, li, td
-    font-size 16px
-  #quick-contact  a
-    font-size 20px
-  #expand-quick-contact  a
-    display inline-block
-    width 20px

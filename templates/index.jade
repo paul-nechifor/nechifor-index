@@ -65,9 +65,9 @@ mixin projects
             each link in p.linkList
               a(href=link.url)
                 i(class=icons[link.type])
-          a(href='#')
-            img(src='/s/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
-          p= p.desc
+        a(href='#')
+          img(src='/s/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
+        p= p.desc
   .buttons.clear
     //p
       a#show-projects-btn.btn.primary Show more projects
