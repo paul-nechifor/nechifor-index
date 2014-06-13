@@ -8,22 +8,15 @@
 
 mixin description
   .title
-    h1= app.title
-    h2.sub coder · engineer
+    h1= info.personal.name()
+    h2.sub= info.personal.titles().join(' · ')
   .container
     .row
       .left
         .portrait
-          img(src='/s/portret.jpg', alt=app.title)
+          img(src='/s/portret.jpg', alt=info.personal.name())
       .right
-        p
-          | Hello, I’m a passionate developer and engineer from Iași, Romania.
-          | I’ve been writing side projects since I’ve started programming.
-          | I’m a fast learner and I like to take on challenging projects
-          | with other experienced programmers to further develop my skills and leave
-          | behind beautiful projects.
-          | I believe good code can be written in any language. I have an eye out for detail
-          | and precision in everything I do.
+        p= info.personal.descLong
         ul#quick-contact
           - var filter = function (c) { return c.type() !== 'homepage'};
           - var list = info.contact.list.filter(filter);
@@ -120,7 +113,7 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title= app.title
+    title= info.personal.name()
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext')
     link(rel='stylesheet', href='/s/fontello/css/fontello.css')
     link(rel='stylesheet', href='/s/css/app.css')
@@ -143,7 +136,7 @@ html(lang='en')
             li
               a(href='http://blog.paul.nechifor.net') Blog
         h2.self
-          a(href='#')= app.title
+          a(href='#')= info.personal.name()
 
     section#description
       +description()
@@ -155,7 +148,7 @@ html(lang='en')
       +contact()
     footer
       p © 2013–2014
-        = ' ' + app.title
+        = ' ' + info.personal.name()
 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     script(src='/s/js/client.js')
