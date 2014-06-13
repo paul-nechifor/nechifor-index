@@ -1,6 +1,5 @@
 main = ->
   addListeners()
-  loadGoogleMap()
 
 addListeners = ->
   document.getElementById('expand-quick-contact').addEventListener 'mousedown', expandQuickContact
@@ -22,29 +21,5 @@ showProjects = ->
   btn.parentNode.removeChild btn
   $('.project-row.hidden').removeClass 'hidden'
   return
-
-loadGoogleMap = ->
-  script = document.createElement('script')
-  script.type = 'text/javascript'
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&callback=initializeGoogleMap'
-  document.body.appendChild script
-
-initializeGoogleMap = ->
-  latLng = new google.maps.LatLng(47.16, 27.58)
-  mapOptions =
-    zoom: 5
-    center: latLng
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-    disableDefaultUI: true
-    scrollwheel: false
-    draggable: false
-
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
-  marker = new google.maps.Marker(
-    position: latLng
-    map: map
-  )
-  infowindow = new google.maps.InfoWindow(content: "<div style='width:120px;height:24px;font-size:18px;text-align:center'>Iași, România</div>")
-  infowindow.open map, marker
 
 $(document).ready main

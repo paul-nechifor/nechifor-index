@@ -118,7 +118,7 @@ mixin contact
   .container
     p.desc
       | You should contact me for any reason relating to my
-      | work and interests. Below is where I currently live.
+      | work and interests.
   ul.contact-icons
     li
       a(href='mailto:paul@nechifor.net', title='email address')
@@ -190,8 +190,6 @@ html(lang='en')
       +interests()
     section#s-contact
       +contact()
-    section#map-location
-      #map-canvas
     footer
       p © 2013–2014
         = ' ' + app.title
