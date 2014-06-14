@@ -36,10 +36,10 @@ mixin projects
       .project
         h3= p.name
           span.links
-            each link in p.linkList
-              a(href=link.url)
+            each link in p.links.list
+              a(href=link.url, title=link.desc)
                 i(class=getIcon(link.type))
-        a(href='#')
+        a(href=p.url())
           img(src='/s/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
         p= p.desc
   .buttons.clear
