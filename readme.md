@@ -1,5 +1,7 @@
 # Nechifor Index
 
+![screenshot](screenshot.png)
+
 ## Install
 
     npm install
