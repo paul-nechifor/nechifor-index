@@ -89,10 +89,6 @@ mixin interests
 mixin contact
   a#contact.internal
   h2 Contact
-  .container
-    p.desc
-      | You should contact me for any reason relating to my
-      | work and interests.
   - var filter = function (c) { return c.type() !== 'homepage'};
   - var list = info.contact.list.filter(filter);
   - var major = list.slice(0, 4);
