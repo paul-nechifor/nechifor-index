@@ -51,7 +51,7 @@ findScreenshot = (id) ->
       if fs.existsSync path
         return [path, format]
 
-  return null
+  return ['static/other-screenshots/default-screenshot.png', 'png']
 
 gulp.task 'load-info', (cb) ->
   info.loadFromFile INFO_FILE, (err) ->
