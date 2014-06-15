@@ -51,40 +51,7 @@ mixin projects
 mixin interests
   a#interests.internal
   h2 Interests
-  .container
-    p.desc
-      | Things I’ve done in the past and liked and would be
-      | interested in exploring further. If you’re interested in something
-      | similar (big co and startup alike) go ahead and contact me.
-    ul
-      li
-        strong Network communication protocols
-        | .
-      li
-        strong 3D graphics on the web
-        | : use of WebGL for extending the possibilities of
-        | meaningful web communication (not gimmicky stuff) like mapping, analysis tools, more
-        | immersive previews than simple photos.
-      li
-        strong Digital publishing with good typography
-        | : publication of content that builds and improves
-        | on classic typography. Much of current publishing is subpar to dead tree typography.
-      li
-        strong Natural language correction tools
-        | : practical (web?) NLP tools that
-        | correct text beyond simple spell checkers.
-      li
-        strong Clear designs
-        | : unobtrusive design that focuses on the content and its
-        | navigation and manipulation.
-      li
-        strong AI game algorithms
-        | : From complex algorithms
-        | for simple pen and paper games to writing bots for complex games.
-      li
-        strong Programming languages
-        | : I don’t think enough languages exist.
-        | There is room for improvement especially in non-general purpose languages.
+  .container!= info.personal.interestsDesc
 
 mixin contact
   a#contact.internal
