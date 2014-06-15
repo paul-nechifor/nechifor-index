@@ -16,7 +16,7 @@ mixin description
         .portrait
           img(src='/s/portret.jpg', alt=info.personal.name())
       .right
-        p= info.personal.descLong
+        .text!= info.personal.descLong
         ul#quick-contact
           - var filter = function (c) { return c.type() !== 'homepage'};
           - var list = info.contact.list.filter(filter);
