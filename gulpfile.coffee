@@ -2,7 +2,13 @@ gulp = require 'gulp'
 jade = require 'gulp-jade'
 CvInfo = require 'cv-info'
 fs = require 'fs'
-app = require './manifest'
+app = require './intercessor'
+
+app = do ->
+  index = process.argv.indexOf '--app'
+  throw 'no-app' unless index >= 0
+  json = process.argv[index + 1]
+  JSON.parse json
 
 # Not public yet.
 INFO_FILE = '/home/p/pro/nechifor-info/info.yaml'

@@ -40,7 +40,7 @@ mixin projects
               a(href=link.url, title=link.desc)
                 i(class=getIcon(link.type))
         a(href=p.url())
-          img(src='/s/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
+          img(src=app.paths.static + '/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
         p= p.desc
   .buttons.clear
     //p
@@ -78,10 +78,10 @@ html(lang='en')
     meta(charset='utf-8')
     title= info.personal.name()
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext')
-    link(rel='stylesheet', href='/s/fontello/css/fontello.css')
-    link(rel='stylesheet', href='/s/css/app.css')
-    link(rel='shortcut icon', href='/s/favicon.ico', type='image/x-icon')
-    link(rel='apple-touch-icon', href='/s/favicon152.png')
+    link(rel='stylesheet', href=app.paths.static + '/fontello/css/fontello.css')
+    link(rel='stylesheet', href=app.paths.style)
+    link(rel='shortcut icon', href=app.paths.static + '/favicon.ico', type='image/x-icon')
+    link(rel='apple-touch-icon', href=app.paths.static + '/favicon152.png')
     meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=0.25')
   body
     nav
@@ -114,4 +114,4 @@ html(lang='en')
         = ' ' + info.personal.name()
 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    script(src='/s/js/client.js')
+    script(src=app.paths.client)
