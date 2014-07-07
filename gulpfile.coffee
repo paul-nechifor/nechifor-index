@@ -2,7 +2,6 @@ gulp = require 'gulp'
 jade = require 'gulp-jade'
 CvInfo = require 'cv-info'
 fs = require 'fs'
-app = require './intercessor'
 
 app = do ->
   index = process.argv.indexOf '--app'
