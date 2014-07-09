@@ -3,7 +3,7 @@ main = ->
 
 addListeners = ->
   document.getElementById('expand-quick-contact').addEventListener 'mousedown', expandQuickContact
-  document.getElementById('show-projects-btn').addEventListener 'mousedown', showProjects
+  #document.getElementById('show-projects-btn').addEventListener 'mousedown', showProjects
 
 expandQuickContact = ->
   elems = document.getElementById('quick-contact').childNodes

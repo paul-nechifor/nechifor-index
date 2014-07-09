@@ -14,7 +14,7 @@ mixin description
     .row
       .left
         .portrait
-          img(src='/s/nechifor-index/portret.jpg', alt=info.personal.name())
+          img(src=app.paths.static + '/portrait.jpg', alt=info.personal.name())
       .right
         .text!= info.personal.descLong
         ul#quick-contact
