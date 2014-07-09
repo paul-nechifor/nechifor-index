@@ -1,20 +1,24 @@
 # Nechifor Index
 
+The index page of my web site.
+
 ![screenshot](screenshot.png)
 
-## Install
+## Usage
+
+Install the dependencies:
 
     npm install
 
-## Build it
+Build it with `intercessor` in `./build`:
 
-    npm run-script build
+    npm run build
 
-## Run it
+Start it:
 
-    node build/app.js
+    npm run start
 
-Go to [localhost:3000](http://localhost:3000).
+See it at [localhost:3000](http://localhost:3000).
 
 ## License
 
