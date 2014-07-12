@@ -8,15 +8,15 @@
 
 mixin description
   .title
-    h1= info.personal.name()
-    h2.sub= info.personal.titles().join(' · ')
+    h1= info.personal.name.normal
+    h2.sub= info.personal.titles.list.join(' · ')
   .container
     .row
       .left
         .portrait
-          img(src=app.paths.static + '/portrait.jpg', alt=info.personal.name())
+          img(src=app.paths.static + '/portrait.jpg', alt=info.personal.name.normal)
       .right
-        .text!= info.personal.descLong
+        .text!= info.personal.description.long
         ul#quick-contact
           - var filter = function (c) { return c.type() !== 'homepage'};
           - var list = info.contact.list.filter(filter);
@@ -42,6 +42,9 @@ mixin projects
         a(href=p.url())
           img(src=app.paths.static + '/screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
         p= p.desc
+          if p.links.map.article
+            = ' '
+            a.more(href=p.links.map.article.url, title=p.links.map.article.desc) (more)
   .buttons.clear
     //p
       a#show-projects-btn.btn.primary Show more projects
@@ -51,7 +54,17 @@ mixin projects
 mixin interests
   a#interests.internal
   h2 Interests
-  .container!= info.personal.interestsDesc
+  .container
+    p.
+      Things I’ve done in the past and liked and would be interested in
+      exploring further. If you’re interested in something similar (big co and
+      startup alike) go ahead and contact me.
+    ul
+      each i in info.personal.interests.list
+        li
+          strong= i.name
+          if i.description
+            | : #{i.description}
 
 mixin contact
   a#contact.internal
@@ -76,7 +89,7 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title= info.personal.name()
+    title= info.personal.name.normal
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext')
     link(rel='stylesheet', href=app.paths.static + '/fontello/css/fontello.css')
     link(rel='stylesheet', href=app.paths.style)
@@ -99,7 +112,7 @@ html(lang='en')
             li
               a(href=info.contact.map.blog.url()) Blog
         h2.self
-          a(href='#')= info.personal.name()
+          a(href='#')= info.personal.name.normal
 
     section#description
       +description()
@@ -111,7 +124,7 @@ html(lang='en')
       +contact()
     footer
       p © 2013–2014
-        = ' ' + info.personal.name()
+        = ' ' + info.personal.name.normal
 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     script(src=app.paths.client)
