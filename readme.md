@@ -1,6 +1,6 @@
 # Nechifor Index
 
-The index page of my web site.
+The index page of [my web site][ws].
 
 ![screenshot](screenshot.png)
 
@@ -23,3 +23,5 @@ See it at [localhost:3000](http://localhost:3000).
 ## License
 
 MIT
+
+[ws]: http://nechifor.net
