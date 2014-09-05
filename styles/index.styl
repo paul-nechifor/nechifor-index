@@ -297,12 +297,6 @@ nav
     .projects
       width 800px
       margin 0 auto
-  @media (min-width: 1200px)
-    .projects
-      width 1200px
-  @media (min-width: 1600px)
-    .projects
-      width 1600px
 
   @media (max-width: 767px)
     .projects
@@ -315,6 +309,47 @@ nav
       h3, p
         padding-left 10px
         padding-right 10px
+
+  @media (min-width: 1200px)
+    .projects
+      width 1200px
+    .project
+      margin 15px
+      width 370px
+      height 180px
+      position relative
+      img
+        margin 0
+      h3, p
+        position absolute
+        left 0
+        margin 0
+        width 360px
+        visibility hidden
+        padding 5px
+      h3
+        top 0
+      p
+        bottom 0
+      &:hover
+        h3, p
+          visibility visible
+          background-color #323a40
+          color #fff
+
+  @media (min-width: 1200px)
+    .projects
+      width 1200px
+
+  @media (min-width: 1600px)
+    .projects
+      width 1600px
+
+  @media (min-width: 1900px)
+    .projects
+      width 1900px
+    .project
+      margin 5px
 
 // Contact
 .contact-icons
