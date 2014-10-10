@@ -51,21 +51,6 @@ mixin projects
     p
       a.btn(href='https://github.com/paul-nechifor?tab=repositories') View all my repos
 
-mixin interests
-  a#interests.internal
-  h2 Interests
-  .container
-    p.
-      Things I’ve done in the past and liked and would be interested in
-      exploring further. If you’re interested in something similar (big co and
-      startup alike) go ahead and contact me.
-    ul
-      each i in info.personal.interests.list
-        li
-          strong= i.name
-          if i.description
-            | : #{i.description}
-
 mixin contact
   a#contact.internal
   h2 Contact
@@ -106,8 +91,6 @@ html(lang='en')
             li
               a(href='#projects') Projects
             li
-              a(href='#interests') Interests
-            li
               a(href='#contact') Contact
             li
               a(href=info.contact.map.blog.url()) Blog
@@ -118,8 +101,6 @@ html(lang='en')
       +description()
     section#s-projects
       +projects()
-    section#s-interests
-      +interests()
     section#s-contact
       +contact()
     footer
