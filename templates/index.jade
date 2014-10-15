@@ -11,23 +11,17 @@ mixin description
     h1= info.personal.name.normal
     h2.sub= info.personal.titles.list.join(' · ')
   .container
-    .row
-      .left
-        .portrait
-          img(src=app.paths.static + '/portrait.jpg', alt=info.personal.name.normal)
-      .right
-        .text!= info.personal.description.long
-        ul#quick-contact
-          - var filter = function (c) { return c.type() !== 'homepage'};
-          - var list = info.contact.list.filter(filter);
-          - var nShow = 3;
-          each c, i in list
-            li(class=(i >= nShow ? 'hidden' : undefined))
-              a(href=c.url(), title=c.description())
-                i(class=getIcon(c.type()))
-          if list.length > nShow
-            li#expand-quick-contact
-              a »
+    ul#quick-contact
+      - var filter = function (c) { return c.type() !== 'homepage'};
+      - var list = info.contact.list.filter(filter);
+      - var nShow = 3;
+      each c, i in list
+        li(class=(i >= nShow ? 'hidden' : undefined))
+          a(href=c.url(), title=c.description())
+            i(class=getIcon(c.type()))
+      if list.length > nShow
+        li#expand-quick-contact
+          a »
 mixin projects
   a#projects.internal
   h2 Projects
