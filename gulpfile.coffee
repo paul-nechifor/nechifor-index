@@ -63,7 +63,7 @@ gulp.task 'load-info', (cb) ->
     return cb err if err
     copyScreenshots cb
 
-gulp.task 'templates', ['load-info'], ->
+gulp.task 'default', ['load-info'], ->
   locals =
     info: info
     app: app
@@ -71,5 +71,3 @@ gulp.task 'templates', ['load-info'], ->
   gulp.src './templates/index.jade'
   .pipe jade locals: locals
   .pipe gulp.dest './html'
-
-gulp.task 'default', ['templates']
