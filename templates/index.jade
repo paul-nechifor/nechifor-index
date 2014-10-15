@@ -7,8 +7,17 @@
 - }
 
 mixin description
+  nav
+    ul#nav-links
+      li
+        a(href='#projects') Projects
+      li
+        a(href='#contact') Contact
+      li
+        a(href=info.contact.map.blog.url()) Blog
   .title
-    h1= info.personal.name.normal
+    h1
+      a(href=info.contact.map.homepage.url())= info.personal.name.normal
     h2.sub= info.personal.titles.list.join(' · ')
   .container
     ul#quick-contact
@@ -76,21 +85,6 @@ html(lang='en')
     link(rel='apple-touch-icon', href=app.paths.static + '/favicon152.png')
     meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=0.25')
   body
-    nav
-      .container
-        .all-menu
-          .activate
-            i.si-menu
-          ul#nav-links
-            li
-              a(href='#projects') Projects
-            li
-              a(href='#contact') Contact
-            li
-              a(href=info.contact.map.blog.url()) Blog
-        h2.self
-          a(href='#')= info.personal.name.normal
-
     section#description
       +description()
     section#s-projects

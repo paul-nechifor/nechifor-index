@@ -40,7 +40,7 @@ a
   cursor pointer
 a.internal
   position absolute
-  top -60px
+  top 0
 em
   font-style italic
 strong
@@ -85,7 +85,7 @@ section
   padding 50px 0 50px 0
   @media (max-width: 767px)
     padding 30px 0 30px 0
-  &:nth-child(2n)
+  &:nth-child(2n+1)
     background-color #eee
   h2
     text-transform uppercase
@@ -117,100 +117,56 @@ section
     text-align center
     text-transform lowercase
 
-// Navigation
-nav
-  background-color #323A40
-  color #eee
-  position fixed
-  width 100%
-  z-index 100
-  .container
-    position relative
-  a
-    display block
-    height 60px
-    line-height 60px
-    color #eee
-    text-transform uppercase
-    font-weight 700
-    cursor pointer
-    &:hover
-      color #37AD8E
-  ul
-    position absolute
-    right 0
-    top 0
-    background-color #323A40
-  li
-    display inline-block
-    font-size 14px
-    margin-right 20px
-    margin-bottom 0
-    &:last-child
-      margin-right 0
-  h2
-    font-size 20px
-  // Hide menu icon on big devices.
-  @media (min-width: 768px)
-    .all-menu .activate
-      display none
-  @media (max-width: 767px)
-    ul
-      margin 60px 0 0 0
-    li
-      display block
-      font-size 14px
-      margin 0
-      font-size 18px
-      a
-        height 30px
-        line-height 30px
-        padding 10px 30px
-    li:last-child a
-      padding-bottom 20px
-    #nav-links
-      display none
-    .all-menu
-      position absolute
-      top 0
-      right 0
-      .activate
-        font-size 30px
-        text-align right
-        line-height 60px
-        height 60px
-        padding 0 10px
-      &:hover
-        #nav-links
-          display block
-
 // Description
 #description
-  padding-top 110px
+  padding 0
   background-image url('../cover.jpg')
   background-color #323A40
   background-position center top
   background-repeat no-repeat
-  p
-    font-weight 400
-  p, h1, h2
-    color #FFF
+  nav
+    text-align center
+    margin-bottom 110px
+    ul
+      display inline-block
+      padding 0
+      margin-top 15px
+    li
+      display inline-block
+      font-size 16px
+      margin-right 20px
+      margin-bottom 0
+      &:last-child
+        margin-right 0
+    a
+      display block
+      color #fff
+      text-transform uppercase
+      font-weight 700
+      cursor pointer
+      padding 3px 6px
+      &:hover
+        border-radius 4px
+        -webkit-border-radius 4px
+        -moz-border-radius 4px
+        background-color #28816A
+  h1 a, h2
+    color #fff
+  h2
+    margin-bottom 100px
   .container
     text-align center
-  @media (max-width: 767px)
-    padding-top 90px
-    margin 0 auto
 #quick-contact
-  margin-top 10px
   padding-left 0
   font-size 20px
   display inline-block
-  margin 0 auto
+  margin 0 auto 15px auto
   @media (max-width: 479px)
     a
       font-size 20px
   li
     display inline-block
+    margin 0
     a
       display block
       color #FFF
@@ -326,7 +282,7 @@ nav
 .contact-icons
   margin 0
   text-align center
-  width 360px
+  width 381px
   margin 0 auto
   li
     display block
