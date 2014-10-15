@@ -48,11 +48,7 @@ mixin projects
           if p.links.map.article
             = ' '
             a.more(href=p.links.map.article.url, title=p.links.map.article.desc) (more)
-  .buttons.clear
-    //p
-      a#show-projects-btn.btn.primary Show more projects
-    p
-      a.btn(href='https://github.com/paul-nechifor?tab=repositories') View all my repos
+  .clear
 
 mixin contact
   a#contact.internal
