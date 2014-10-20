@@ -10,7 +10,6 @@ app = do ->
   JSON.parse json
 
 # Not public yet.
-INFO_FILE = '/home/p/pro/nechifor-info/info.yaml'
 PROJECTS_ROOT = '/home/p/pro'
 
 info = new CvInfo.Info
@@ -59,7 +58,7 @@ findScreenshot = (id) ->
   return ['static/other-screenshots/default-screenshot.png', 'png']
 
 gulp.task 'load-info', (cb) ->
-  info.loadFromFile INFO_FILE, (err) ->
+  info.loadFromFile 'info/info.yaml', (err) ->
     return cb err if err
     copyScreenshots cb
 

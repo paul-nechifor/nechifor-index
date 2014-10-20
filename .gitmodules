@@ -1,0 +1,3 @@
+[submodule "info"]
+	path = info
+	url = https://github.com/paul-nechifor/nechifor-info

@@ -6,6 +6,11 @@ The index page of [my web site][ws].
 
 ## Usage
 
+Get the submodule:
+
+    git submodule init
+    git submodule update
+
 Install the dependencies:
 
     npm install
