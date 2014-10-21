@@ -9,9 +9,6 @@ app = do ->
   json = process.argv[index + 1]
   JSON.parse json
 
-# Not public yet.
-PROJECTS_ROOT = '/home/p/pro'
-
 info = new CvInfo.Info
 screenshots = {}
 
@@ -49,7 +46,7 @@ findScreenshot = (id) ->
   for format in formats
     paths =
       for place in places
-        "#{PROJECTS_ROOT}/#{id}/#{place}.#{format}"
+        "projects/#{id}/#{place}.#{format}"
     paths.push "static/other-screenshots/#{id}.#{format}"
     for path in paths
       if fs.existsSync path
