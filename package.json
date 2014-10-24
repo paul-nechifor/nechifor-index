@@ -5,16 +5,16 @@
   "scripts": {
     "build": "intercessor",
     "intercessor-prepare": "npm run projects && npm run build",
-    "projects": "git submodule init && git submodule update && npm install && coffee get-projects.coffee",
+    "projects": "git submodule init && git submodule update && npm install && gulp projects",
     "start": "node build/app.js"
   },
   "dependencies": {
     "async": "^0.9.0",
-    "coffee-script": "^1.7.1",
+    "coffee-script": "^1.8.0",
     "cv-info": ">=0.3.0",
-    "gulp": "^3.8.0",
+    "gulp": "^3.8.9",
     "gulp-jade": "^0.5.0",
-    "intercessor": ">=0.3.0"
+    "intercessor": ">=0.3.2"
   },
   "license": "MIT"
 }

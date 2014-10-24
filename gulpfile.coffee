@@ -1,33 +1,22 @@
+CvInfo = require 'cv-info'
+async = require 'async'
+fs = require 'fs'
 gulp = require 'gulp'
 jade = require 'gulp-jade'
-CvInfo = require 'cv-info'
-fs = require 'fs'
-
-app = do ->
-  index = process.argv.indexOf '--app'
-  throw 'no-app' unless index >= 0
-  json = process.argv[index + 1]
-  JSON.parse json
+{exec} = require 'child_process'
 
 info = new CvInfo.Info
 screenshots = {}
 
-copyScreenshots = (cb) ->
-  try
-    fs.mkdirSync 'static/screenshots'
-  catch
-    # Ignore
-  i = 0
-  list = info.projects.list
-  next = ->
-    return cb() if i >= list.length
-    copyScreenshot list[i].code, (err) ->
-      return cb err if err
-      i++
-      next()
-  next()
+loadInfo = (cb) ->
+  info.loadFromFile 'info/info.yaml', cb
 
-copyScreenshot = (id, cb) ->
+copyScreenshots = (cb) ->
+  try fs.mkdirSync 'static/screenshots'
+  async.map info.projects.list, copyScreenshot , cb
+
+copyScreenshot = (project, cb) ->
+  id = project.code
   find = findScreenshot id
   screenshots[id] = {}
   return cb() unless find
@@ -52,17 +41,45 @@ findScreenshot = (id) ->
       if fs.existsSync path
         return [path, format]
 
-  return ['static/other-screenshots/default-screenshot.png', 'png']
+  ['static/other-screenshots/default-screenshot.png', 'png']
+
+getProject = (p, cb) ->
+  console.log 'Getting', p.url
+  exec """
+    mkdir -p projects
+    if [ -d projects/#{p.name} ]; then
+      cd projects/#{p.name}
+      git pull
+    else
+      git clone '#{p.url}' projects/#{p.name}
+    fi
+  """, cb
+
+gulp.task 'projects', (cb) ->
+  loadInfo (err) ->
+    return cb err if err
+    projects =
+      for p in info.projects.list
+        g = p.links.map.github
+        continue unless g
+        name = g.url.split '/'
+        name = name[name.length - 1]
+        name: name, url: g.url
+    projects.sort (a, b) -> if a.name >= b.name then 1 else -1
+    async.mapSeries projects, getProject, cb
 
 gulp.task 'load-info', (cb) ->
-  info.loadFromFile 'info/info.yaml', (err) ->
+  loadInfo (err) ->
     return cb err if err
     copyScreenshots cb
 
 gulp.task 'default', ['load-info'], ->
   locals =
     info: info
-    app: app
+    app: do ->
+      index = process.argv.indexOf '--app'
+      throw 'no-app' unless index >= 0
+      JSON.parse process.argv[index + 1]
     screenshots: screenshots
   gulp.src './templates/index.jade'
   .pipe jade locals: locals
