@@ -6,14 +6,9 @@ The index page of [my web site][ws].
 
 ## Usage
 
-Get the submodule:
+Get the projects and dependancies (it will take quite a while):
 
-    git submodule init
-    git submodule update
-
-Install the dependencies:
-
-    npm install
+    npm run projects
 
 Build it with `intercessor` in `./build`:
 

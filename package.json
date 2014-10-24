@@ -4,10 +4,12 @@
   "author": "Paul Nechifor <paul@nechifor.net> (http://nechifor.net/)",
   "scripts": {
     "build": "intercessor",
-    "start": "node build/app.js",
-    "intercessor-prepare": "git submodule init && git submodule update && npm install && npm run build"
+    "intercessor-prepare": "npm run projects && npm run build",
+    "projects": "git submodule init && git submodule update && npm install && coffee get-projects.coffee",
+    "start": "node build/app.js"
   },
   "dependencies": {
+    "async": "^0.9.0",
     "coffee-script": "^1.7.1",
     "cv-info": ">=0.3.0",
     "gulp": "^3.8.0",
