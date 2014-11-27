@@ -6,22 +6,16 @@ The index page of [my web site][ws].
 
 ## Usage
 
-Get the projects and dependancies (it will take quite a while):
+Clone this repo. Build and run it by typing:
 
-    npm run projects
+    npm run up
 
-Build it with `intercessor` in `./build`:
-
-    npm run build
-
-Start it:
-
-    npm run start
-
-See it at [localhost:3000](http://localhost:3000).
+Go to [localhost:3000](http://localhost:3000) to see it. See other [supported
+commands][sc].
 
 ## License
 
 MIT
 
 [ws]: http://nechifor.net
+[sc]: https://github.com/paul-nechifor/intercessor#supported-commands

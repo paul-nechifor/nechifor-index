@@ -4,9 +4,9 @@
   "author": "Paul Nechifor <paul@nechifor.net> (http://nechifor.net/)",
   "scripts": {
     "build": "intercessor",
-    "intercessor-prepare": "npm run projects && npm run build",
-    "projects": "git submodule init && git submodule update && npm install && gulp projects",
-    "start": "node build/app.js"
+    "intercessor-make": "gulp projects && npm run build",
+    "start": "node build/app.js",
+    "up": "npm install && npm run intercessor-make && npm run start"
   },
   "dependencies": {
     "async": "^0.9.0",
