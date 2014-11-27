@@ -3,13 +3,23 @@ async = require 'async'
 fs = require 'fs'
 gulp = require 'gulp'
 jade = require 'gulp-jade'
+{GitRequire} = require 'git-require'
 {exec} = require 'child_process'
 
 info = new CvInfo.Info
 screenshots = {}
 
 loadInfo = (cb) ->
-  info.loadFromFile 'info/info.yaml', cb
+  gitRequire = new GitRequire __dirname,
+    dir: 'projects'
+    repos:
+      'nechifor-info': 'git@github.com:paul-nechifor/nechifor-info'
+  gitRequire.init (err) ->
+    return cb err if err
+    gitRequire.action 'install', (err) ->
+      return cb err if err
+      infoProject = gitRequire.repos['nechifor-info'].dir
+      info.loadFromFile infoProject + '/info.yaml', cb
 
 copyScreenshots = (cb) ->
   try fs.mkdirSync 'static/screenshots'
@@ -43,30 +53,22 @@ findScreenshot = (id) ->
 
   ['static/other-screenshots/default-screenshot.png', 'png']
 
-getProject = (p, cb) ->
-  console.log 'Getting', p.url
-  exec """
-    mkdir -p projects
-    if [ -d projects/#{p.name} ]; then
-      cd projects/#{p.name}
-      git pull
-    else
-      git clone '#{p.url}' projects/#{p.name}
-    fi
-  """, cb
-
 gulp.task 'projects', (cb) ->
   loadInfo (err) ->
     return cb err if err
-    projects =
-      for p in info.projects.list
-        g = p.links.map.github
-        continue unless g
-        name = g.url.split '/'
-        name = name[name.length - 1]
-        name: name, url: g.url
-    projects.sort (a, b) -> if a.name >= b.name then 1 else -1
-    async.mapSeries projects, getProject, cb
+    repos = {}
+    for p in info.projects.list
+      git = p.links.map.github
+      continue unless git
+      name = git.url.split '/'
+      name = name[name.length - 1]
+      repos[name] = git.url
+    gitRequire = new GitRequire __dirname,
+      dir: 'projects'
+      repos: repos
+    gitRequire.init (err) ->
+      return cb err if err
+      gitRequire.action 'install', cb
 
 gulp.task 'load-info', (cb) ->
   loadInfo (err) ->

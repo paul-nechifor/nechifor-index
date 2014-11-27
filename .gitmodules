@@ -1,6 +1,3 @@
-[submodule "info"]
-	path = info
-	url = https://github.com/paul-nechifor/nechifor-info
 [submodule "projects/multilatex"]
 	path = projects/multilatex
 	url = https://github.com/paul-nechifor/multilatex
