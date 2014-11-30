@@ -3,23 +3,21 @@ async = require 'async'
 fs = require 'fs'
 gulp = require 'gulp'
 jade = require 'gulp-jade'
-{GitRequire} = require 'git-require'
+gitRequire = require 'git-require'
 {exec} = require 'child_process'
+
+process.env.GIT_REQUIRE_DIR or= __dirname + '/projects'
 
 info = new CvInfo.Info
 screenshots = {}
 
 loadInfo = (cb) ->
-  gitRequire = new GitRequire __dirname,
-    dir: 'projects'
-    repos:
-      'nechifor-info': 'git@github.com:paul-nechifor/nechifor-info'
-  gitRequire.init (err) ->
+  repos = 'nechifor-info': 'git@github.com:paul-nechifor/nechifor-info'
+  config = dir: null, repos: repos
+  gitRequire.install __dirname, config, (err, repos) ->
     return cb err if err
-    gitRequire.action 'install', (err) ->
-      return cb err if err
-      infoProject = gitRequire.repos['nechifor-info'].dir
-      info.loadFromFile infoProject + '/info.yaml', cb
+    infoFile = repos['nechifor-info'].dir + '/info.yaml'
+    info.loadFromFile infoFile, cb
 
 copyScreenshots = (cb) ->
   try fs.mkdirSync 'static/screenshots'
@@ -45,7 +43,7 @@ findScreenshot = (id) ->
   for format in formats
     paths =
       for place in places
-        "projects/#{id}/#{place}.#{format}"
+        "#{process.env.GIT_REQUIRE_DIR}/#{id}/#{place}.#{format}"
     paths.push "static/other-screenshots/#{id}.#{format}"
     for path in paths
       if fs.existsSync path
@@ -63,12 +61,8 @@ gulp.task 'projects', (cb) ->
       name = git.url.split '/'
       name = name[name.length - 1]
       repos[name] = git.url
-    gitRequire = new GitRequire __dirname,
-      dir: 'projects'
-      repos: repos
-    gitRequire.init (err) ->
-      return cb err if err
-      gitRequire.action 'install', cb
+    config = dir: null, repos: repos
+    gitRequire.install __dirname, config, cb
 
 gulp.task 'load-info', (cb) ->
   loadInfo (err) ->
