@@ -35,7 +35,7 @@ mixin projects
   a#projects.internal
   h2 Projects
   .projects
-    each p in info.projects.list
+    each p in info.projects.tagOrder('index')
       .project
         h3= p.name
           span.links
