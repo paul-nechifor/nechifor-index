@@ -4,7 +4,6 @@ fs = require 'fs'
 gulp = require 'gulp'
 jade = require 'gulp-jade'
 gitRequire = require 'git-require'
-{exec} = require 'child_process'
 
 process.env.GIT_REQUIRE_DIR or= __dirname + '/projects'
 
