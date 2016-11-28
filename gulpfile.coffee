@@ -11,7 +11,7 @@ info = new CvInfo.Info
 screenshots = {}
 
 loadInfo = (cb) ->
-  repos = 'nechifor-info': 'git@github.com:paul-nechifor/nechifor-info'
+  repos = 'nechifor-info': 'https://github.com/paul-nechifor/nechifor-info'
   config = dir: null, repos: repos
   gitRequire.install __dirname, config, (err, repos) ->
     return cb err if err
