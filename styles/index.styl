@@ -1,3 +1,11 @@
+// Varibles
+
+foreground-color = #000
+background-color = #fff
+contact-box-size = 50px
+contact-box-font-size = 36px
+
+// Reset
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
 ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
@@ -30,12 +38,14 @@ table
 body
   font-family 'TeX Gyre Heros', 'Open Sans'
   font-weight bold
-  color #000
+  color foreground-color
   cursor default
 a
   text-decoration none
-  color #37AD8E
+  color foreground-color
   cursor pointer
+  &:hover
+    color #888
 a.internal
   position absolute
   top 0
@@ -98,34 +108,29 @@ section
   padding 0
   background-color #fff
   h1 a, h2
-    color #000
+    color foreground-color
   h2
   .container
     text-align center
 #quick-contact
-  padding-left 0
-  font-size 20px
-  display inline-block
-  margin 0 auto 15px auto
-  @media (max-width: 479px)
-    a
-      font-size 20px
+  .hidden
+    display none
   li
     display inline-block
     margin 0
-    a
-      display block
-      color #000
-      width 28px
-      height 28px
-      text-align center
-      &:hover
-        border-radius 4px
-        -webkit-border-radius 4px
-        -moz-border-radius 4px
-        background-color #28816A
-  .hidden
-    display none
+  a
+    color #999
+    &:hover
+      color #666
+  a, i
+    display block
+    font-size contact-box-font-size
+    text-align center
+    line-height contact-box-size
+  li, a, i, i:before
+    height contact-box-size
+    width contact-box-size
+    margin 0
 @media (max-width: 479px)
   #expand-quick-contact  a
     display inline-block
@@ -146,7 +151,7 @@ section
       width 100%
       margin 12px 0 10px
     h3
-      font-size 24px
+      font-size 22px
       font-weight bold
       .links a
         display block
@@ -206,8 +211,6 @@ section
     display none
 
 footer
-  background-color #000
-  color #eee
   text-align center
   padding 18px 0
   clear both

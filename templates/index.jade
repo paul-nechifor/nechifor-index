@@ -42,25 +42,6 @@ mixin projects
             a.more(href=p.links.map.article.url, title=p.links.map.article.desc) (more)
   .clear
 
-mixin contact
-  a#contact.internal
-  h2 Contact
-  - var filter = function (c) { return c.type() !== 'homepage'};
-  - var list = info.contact.list.filter(filter);
-  - var major = list.slice(0, 4);
-  - var minor = list.slice(4);
-  ul.contact-icons
-    each c in major
-      li
-        a(href=c.url(), title=c.description())
-          i(class=getIcon(c.type()))
-  ul.lesser.contact-icons
-    each c in minor
-      li
-        a(href=c.url(), title=c.description())
-          i(class=getIcon(c.type()))
-  .clear
-
 doctype html
 html(lang='en')
   head
@@ -68,7 +49,7 @@ html(lang='en')
     title= info.personal.name.normal
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext')
     link(rel='stylesheet', href=app.paths.static + '/fontello/css/fontello.css')
-    link(rel='stylesheet', href=app.paths.static + '/textgyreheros/font.css')
+    link(rel='stylesheet', href=app.paths.static + '/texgyreheros/font.css')
     link(rel='stylesheet', href=app.paths.style)
     link(rel='shortcut icon', href=app.paths.static + '/favicon.ico', type='image/x-icon')
     link(rel='apple-touch-icon', href=app.paths.static + '/favicon152.png')
@@ -78,8 +59,6 @@ html(lang='en')
       +description()
     section#s-projects
       +projects()
-    section#s-contact
-      +contact()
     footer
       p © 2013–2016
         = ' ' + info.personal.name.normal
