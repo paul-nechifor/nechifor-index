@@ -1,0 +1,61 @@
+- function getIcon(name) {
+-   var special = {};
+-   special.blog = 'si-doc-text-inv';
+-   special.email = 'si-mail';
+-   special.report = 'si-doc-text-inv';
+-   return special[name] ? special[name] : 'si-' + name;
+- }
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+    link(rel='apple-touch-icon', href='favicon152.png')
+    meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=0.25')
+    style: :stylus(compress=true)
+      body
+        font-size 1.2em
+        line-height 1.4
+      h1, footer
+        text-align center
+      a
+        text-decoration none
+        &:hover
+          text-decoration underline
+      .projects
+        .project
+          margin 0 20px 40px
+          width 360px
+          height 246px
+          float left
+          h3
+            font-size 22px
+            font-weight bold
+            margin 0
+            .links a
+              display block
+              float right
+          p
+            margin 0
+          img
+            width 100%
+  body
+    .header: :markdown-it
+      # [Paul Nechifor’s Projects](.)
+    .projects
+      each p in info.projects.tagOrder('index')
+        .project
+          h3= p.name
+            span.links
+              each link in p.links.list
+                a(href=link.url, title=link.desc)
+                  i(class=getIcon(link.type))
+          a(href=p.url())
+            img(src='screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
+          p= p.desc
+            if p.links.map.article
+              = ' '
+              a.more(href=p.links.map.article.url, title=p.links.map.article.desc) (more)
+    div(style='clear:both')
+    footer: p © 2013–2017 <a href='/'>Paul Nechifor</a>

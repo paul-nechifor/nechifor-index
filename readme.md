@@ -1,21 +1,13 @@
-# Nechifor Index
+# Nechifor Projects
 
-The index page of [my web site][ws].
-
-![screenshot](screenshot.png)
+A list of my projects.
 
 ## Usage
 
-Clone this repo. Build and run it by typing:
+Start the server and watch for changes:
 
-    npm run up
-
-Go to [localhost:3000](http://localhost:3000) to see it. See other [supported
-commands][sc].
+    npm start
 
 ## License
 
-MIT
-
-[ws]: http://nechifor.net
-[sc]: https://github.com/paul-nechifor/intercessor#supported-commands
+ISC
