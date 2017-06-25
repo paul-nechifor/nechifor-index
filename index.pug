@@ -14,9 +14,13 @@ html(lang='en')
     link(rel='apple-touch-icon', href='favicon152.png')
     meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=0.25')
     style: :stylus(compress=true)
+      project-width = 360px
+      project-margin = 20px
+      project-total-width = project-width + 2 * project-margin
       body
         font-size 1.2em
         line-height 1.4
+        margin 0
       h1, footer
         text-align center
       a
@@ -24,9 +28,13 @@ html(lang='en')
         &:hover
           text-decoration underline
       .projects
+        margin 0 auto
+        for i in (1..10)
+          @media (min-width: i * project-total-width + 20px)
+            width i * project-total-width
         .project
-          margin 0 20px 40px
-          width 360px
+          margin 0 project-margin 40px
+          width project-width
           height 246px
           float left
           h3
@@ -57,5 +65,5 @@ html(lang='en')
             if p.links.map.article
               = ' '
               a.more(href=p.links.map.article.url, title=p.links.map.article.desc) (more)
-    div(style='clear:both')
+      div(style='clear:both')
     footer: p © 2013–2017 <a href='/'>Paul Nechifor</a>

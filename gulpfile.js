@@ -30,7 +30,6 @@ gulp.task('projects', done => {
       }
 
       for (const p of info.projects.list) {
-        break; ///////////////////////////////////////////////////////////////////////////////////////////////////////
         const {github} = p.links.map;
         if (github) {
           getOrUpdate(github.url);
@@ -62,6 +61,8 @@ function getOrUpdate(url) {
   const parts = url.split('/');
   const name = parts[parts.length - 1];
   const dir = path.join(projectsDir, name);
+
+  console.log('Getting ‘%s’.', name);
 
   if (fs.existsSync(dir)) {
     execSync(`cd '${dir}'; git pull`);
