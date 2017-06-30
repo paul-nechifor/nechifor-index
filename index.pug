@@ -52,18 +52,11 @@ html(lang='en')
     .header: :markdown-it
       # [Paul Nechifor’s Projects](.)
     .projects
-      each p in info.projects.tagOrder('index')
+      each p in info
         .project
           h3= p.name
-            span.links
-              each link in p.links.list
-                a(href=link.url, title=link.desc)
-                  i(class=getIcon(link.type))
-          a(href=p.url())
+          a(href=p.url)
             img(src='screenshots/' + screenshots[p.code].default, alt=p.name + ' screenshot')
           p= p.desc
-            if p.links.map.article
-              = ' '
-              a.more(href=p.links.map.article.url, title=p.links.map.article.desc) (more)
       div(style='clear:both')
     footer: p © 2013–2017 <a href='/'>Paul Nechifor</a>

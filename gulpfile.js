@@ -1,4 +1,3 @@
-const CvInfo = require('cv-info');
 const async = require('async');
 const fs = require('fs');
 const gulp = require('gulp');
@@ -7,36 +6,31 @@ const mkdirp = require('mkdirp');
 const path = require('path');
 const pug = require('gulp-pug');
 const webserver = require('gulp-webserver');
+const yaml = require('js-yaml');
 const {execSync} = require('child_process');
 
 const projectsDir = path.join(__dirname, 'projects');
 const screenshotDir = path.join(__dirname, 'dist', 'screenshots');
-const info = new CvInfo.Info();
 const screenshots = {};
+let info = null;
 
 gulp.task('default', ['html', 'webserver', 'watch']);
 
 gulp.task('build', ['html']);
 
 gulp.task('projects', done => {
-  loadInfo(err => {
+  info = loadInfo();
+  copyScreenshots(err => {
     if (err) {
       return done(err);
     }
 
-    copyScreenshots(err => {
-      if (err) {
-        return done(err);
+    for (const p of info) {
+      if (p.gitUrl) {
+        getOrUpdate(p.gitUrl);
       }
-
-      for (const p of info.projects.list) {
-        const {github} = p.links.map;
-        if (github) {
-          getOrUpdate(github.url);
-        }
-      }
-      done();
-    });
+    }
+    done();
   });
 });
 
@@ -73,14 +67,14 @@ function getOrUpdate(url) {
 
 function loadInfo(cb) {
   mkdirp.sync(projectsDir, {mode: 0755});
-  getOrUpdate('https://github.com/paul-nechifor/nechifor-info');
-  const infoFile = path.join(projectsDir, 'nechifor-info', 'info.yaml');
-  info.loadFromFile(infoFile, cb);
+  const infoFile = path.join(__dirname, 'info.yaml');
+  const yamlData = fs.readFileSync(infoFile, 'utf8');
+  return yaml.safeLoad(yamlData);
 }
 
 function copyScreenshots(cb) {
   mkdirp.sync(screenshotDir, {mode: 0755});
-  async.map(info.projects.list, copyScreenshot, cb);
+  async.map(info, copyScreenshot, cb);
 }
 
 function copyScreenshot(project, cb) {
