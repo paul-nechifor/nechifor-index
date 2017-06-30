@@ -94,18 +94,11 @@ function copyScreenshot(project, cb) {
 };
 
 function findScreenshot(id) {
-  const formats = ['png', 'jpg'];
-  const places = ['screenshot'];
-
-  for (const format of Array.from(formats)) {
-    const paths = places.map(
-      place => `${projectsDir}/${id}/${place}.${format}`
-    );
-    paths.push(path.join(__dirname, 'default-screenshot.png'));
-    for (const path of paths) {
-      if (fs.existsSync(path)) {
-        return [path, format];
-      }
+  for (const format of ['png', 'jpg']) {
+    const imagePath = path.join(projectsDir, id, `screenshot.${format}`);
+    if (fs.existsSync(imagePath)) {
+      return [imagePath, format];
     }
   }
+  return [path.join(__dirname, 'default-screenshot.png'), 'png'];
 };
