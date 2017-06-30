@@ -1,26 +1,20 @@
 - code: circuits
   name: Circuits
-  url: http://nechifor.net/circuits
+  url: /circuits
   desc: Generator of seamless circuit board tiles.
   gitUrl: https://github.com/paul-nechifor/circuits
 
 - code: chess-puzzles
   name: Chess puzzles
-  url: http://nechifor.net/chess-puzzles
+  url: /chess-puzzles
   desc: Chess puzzles web app.
   gitUrl: https://github.com/paul-nechifor/chess-puzzles
 
 - code: papers
   name: Papers
-  url: http://nechifor.net/papers
+  url: /papers
   desc: Generates funny computer science paper titles.
   gitUrl: https://github.com/paul-nechifor/papers
-
-- code: nechifor-site
-  name: Site
-  url: https://github.com/paul-nechifor/nechifor-site
-  desc: My integrated Intercessor site.
-  gitUrl: https://github.com/paul-nechifor/nechifor-site
 
 - code: tt
   name: Thunder Tactics
@@ -28,27 +22,21 @@
   desc: WebGL and WebSockets MMORPG/TBS browser game (group project).
   gitUrl: https://github.com/paul-nechifor/tt
 
-- code: nechifor-blog
-  name: Blog
-  url: https://github.com/paul-nechifor/nechifor-blog
-  desc: My custom blog generator.
-  gitUrl: https://github.com/paul-nechifor/nechifor-blog
-
 - code: jpeg-enricher
   name: JPEG Enricher
-  url: http://nechifor.net/jpeg-enricher
+  url: /jpeg-enricher
   desc: Web app for accruing JPEG artifacts.
   gitUrl: https://github.com/paul-nechifor/jpeg-enricher
 
 - code: sidrem
   name: Sidrem
-  url: http://nechifor.net/sidrem
+  url: /sidrem
   desc: A constructed script font I created.
   gitUrl: https://github.com/paul-nechifor/sidrem
 
 - code: check-your-privilege
   name: Check Your Privilege
-  url: http://nechifor.net/check-your-privilege
+  url: /check-your-privilege
   desc: A simple checklist to verify if you are privileged.
   gitUrl: https://github.com/paul-nechifor/check-your-privilege
 
@@ -58,35 +46,17 @@
   desc: Multiplayer quiz game, but massive, urgent, and eternal.
   gitUrl: https://github.com/paul-nechifor/1930
 
-- code: nechifor-index
-  name: Homepage
-  url: https://github.com/paul-nechifor/nechifor-index
-  desc: My homepage.
-  gitUrl: https://github.com/paul-nechifor/nechifor-index
-
 - code: sibf
   name: SIBF
-  url: http://nechifor.net/sibf
+  url: /sibf
   desc: My attempt at making better book typography on the web.
   gitUrl: https://github.com/paul-nechifor/sibf
 
-- code: webgl-demos
-  name: WebGL Demos
-  url: http://nechifor.net/webgl-demos
-  desc: My WebGL demos.
-  gitUrl: https://github.com/paul-nechifor/webgl-demos
-
 - code: pseudoromanian
   name: Pseudoromanian
-  url: http://nechifor.net/pseudoromana
+  url: /pseudoromana
   desc: Text generator similar to Lorem Ipsum, but with Romanian letters.
   gitUrl: https://github.com/paul-nechifor/pseudoromanian
-
-- code: git-visualization
-  name: Git Visualization
-  url: http://nechifor.net/git-visualization
-  desc: Visualize local Git repos.
-  gitUrl: https://github.com/paul-nechifor/git-visualization
 
 - code: space-hoarder
   name: SpaceHoarder
@@ -108,7 +78,7 @@
 
 - code: xslt-blog
   name: XSLT Blog
-  url: https://github.com/paul-nechifor/xslt-blog
+  url: /xslt-blog/vechi/jurnal.xml
   desc: Experimental blog I wrote after learning XSLT in 2010.
   gitUrl: https://github.com/paul-nechifor/xslt-blog
 
@@ -126,13 +96,13 @@
 
 - code: identitate-falsa
   name: Fake Identity
-  url: http://nechifor.net/identitate-falsa
+  url: /identitate-falsa
   desc: Plausible fake identity generator (Romanian).
   gitUrl: https://github.com/paul-nechifor/identitate-falsa
 
 - code: horoscop
   name: Horoscop
-  url: http://nechifor.net/horoscop
+  url: /horoscop
   desc: Plausible fake horoscope generator (Romanian).
   gitUrl: https://github.com/paul-nechifor/horoscop
 
@@ -178,45 +148,39 @@
   desc: Peer-to-peer distributed file system (B.Sc. project).
   gitUrl: https://github.com/paul-nechifor/negura
 
-- code: minimul-machine
-  name: Minimul Machine
-  url: https://github.com/paul-nechifor/minimul-machine
-  desc: Vagrant configuration for all my old websites.
-  gitUrl: https://github.com/paul-nechifor/minimul-machine
-
 - code: minimul
   name: Minimul
-  url: https://github.com/paul-nechifor/minimul
+  url: /minimul
   desc: The predecessor to my current website.
   gitUrl: https://github.com/paul-nechifor/minimul
 
 - code: college-website-2
   name: Second College Website
-  url: https://github.com/paul-nechifor/college-website-2
+  url: /college-website-2
   desc: My second college website which I hosted on the students' server.
   gitUrl: https://github.com/paul-nechifor/college-website-2
 
 - code: college-website
   name: College Website
-  url: https://github.com/paul-nechifor/college-website
+  url: /college-website
   desc: My initial college website in PHP from 2008.
   gitUrl: https://github.com/paul-nechifor/college-website
 
 - code: paul-scripts
   name: Paul Scripts
-  url: https://github.com/paul-nechifor/paul-scripts
+  url: /paul-scripts
   desc: My pre-college personal website.
   gitUrl: https://github.com/paul-nechifor/paul-scripts
 
 - code: italia-fascista
   name: Italia fascistă
-  url: https://github.com/paul-nechifor/italia-fascista
+  url: /italia-fascista
   desc: A history themed web site I build in high school for a competition.
   gitUrl: https://github.com/paul-nechifor/italia-fascista
 
 - code: rstsd
   name: RSTSD
-  url: https://github.com/paul-nechifor/rstsd
+  url: /rstsd
   desc: A history themed website I build in 2006 for a competition.
   gitUrl: https://github.com/paul-nechifor/rstsd
 
@@ -228,7 +192,7 @@
 
 - code: meet-firefox
   name: Meet Firefox
-  url: https://github.com/paul-nechifor/meet-firefox
+  url: /meet-firefox
   desc: A silly project I did in my first semester of college.
   gitUrl: https://github.com/paul-nechifor/meet-firefox
 
@@ -303,12 +267,6 @@
   url: https://github.com/paul-nechifor/dotfiles
   desc: My personal Linux dotfiles.
   gitUrl: https://github.com/paul-nechifor/dotfiles
-
-- code: cv-info
-  name: CV Info
-  url: https://github.com/paul-nechifor/cv-info
-  desc: Generate CV data from a YAML file.
-  gitUrl: https://github.com/paul-nechifor/cv-info
 
 - code: cv
   name: CV
