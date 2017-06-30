@@ -264,7 +264,7 @@
 
 - code: dotfiles
   name: Dotfiles
-  url: https://github.com/paul-nechifor/dotfiles
+  url: /dotfiles
   desc: My personal Linux dotfiles.
   gitUrl: https://github.com/paul-nechifor/dotfiles
 
