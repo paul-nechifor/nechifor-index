@@ -16,6 +16,12 @@
   desc: Generates funny computer science paper titles.
   gitUrl: https://github.com/paul-nechifor/papers
 
+- code: keygen-radio
+  name: Keygen Radio
+  url: /keygen-radio
+  desc: Listen endlessly to keygen chiptunes in JS.
+  gitUrl: https://github.com/paul-nechifor/keygen-radio
+
 - code: tt
   name: Thunder Tactics
   url: https://github.com/paul-nechifor/tt
