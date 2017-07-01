@@ -132,7 +132,7 @@
 
 - code: torus-cycle
   name: TorusCycle
-  url: https://github.com/paul-nechifor/torus-cycle
+  url: /torus-cycle
   desc: A yet to be finished Tron clone in WebGL (use WAD and QE).
   gitUrl: https://github.com/paul-nechifor/torus-cycle
 
