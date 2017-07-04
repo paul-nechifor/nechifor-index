@@ -163,7 +163,7 @@
 - code: college-website-2
   name: Second College Website
   url: /college-website-2
-  desc: My second college website which I hosted on the students' server.
+  desc: My second college website which I hosted on the students’ server.
   gitUrl: https://github.com/paul-nechifor/college-website-2
 
 - code: college-website

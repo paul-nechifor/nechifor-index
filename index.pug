@@ -10,9 +10,10 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
-    link(rel='apple-touch-icon', href='favicon152.png')
-    meta(name='viewport', content='width=device-width, initial-scale=1, minimum-scale=0.25')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title Paul Nechifor’s projects
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='apple-touch-icon', href='/favicon152.png')
     style: :stylus(compress=true)
       project-width = 360px
       project-margin = 20px
@@ -36,6 +37,7 @@ html(lang='en')
           margin 0 project-margin 40px
           width project-width
           height 246px
+          max-width 100%
           float left
           h3
             font-size 22px
@@ -48,6 +50,11 @@ html(lang='en')
             margin 0
           img
             width 100%
+        @media (max-width: project-total-width)
+          .project
+            height auto
+            width auto
+            margin 0 10px 10px
   body
     .header: :markdown-it
       # [Paul Nechifor’s Projects](.)
