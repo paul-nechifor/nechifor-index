@@ -256,6 +256,12 @@
   desc: My first use of BSD sockets to build a chat program.
   gitUrl: https://github.com/paul-nechifor/fenrir-chat
 
+- code: rpgadvance
+  name: RPG Advance
+  url: /rpgadvance
+  desc: One of my first public websites.
+  gitUrl: https://github.com/paul-nechifor/rpgadvance
+
 - code: vagrant-hadoop-cluster
   name: Vagrant Hadoop Cluster
   url: https://github.com/paul-nechifor/vagrant-hadoop-cluster
