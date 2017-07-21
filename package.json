@@ -2,9 +2,9 @@
   "name": "nechifor-projects",
   "version": "0.3.0",
   "description": "A list of my projects.",
-  "devDependencies": {
+  "dependencies": {
     "async": "^2.4.1",
-    "eslint": "^4.0.0",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "gulp": "^3.9.1",

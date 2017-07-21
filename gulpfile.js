@@ -66,14 +66,14 @@ function getOrUpdate(url) {
 }
 
 function loadInfo(cb) {
-  mkdirp.sync(projectsDir, {mode: 0755});
+  mkdirp.sync(projectsDir, {mode: 0o755});
   const infoFile = path.join(__dirname, 'info.yaml');
   const yamlData = fs.readFileSync(infoFile, 'utf8');
   return yaml.safeLoad(yamlData);
 }
 
 function copyScreenshots(cb) {
-  mkdirp.sync(screenshotDir, {mode: 0755});
+  mkdirp.sync(screenshotDir, {mode: 0o755});
   async.map(info, copyScreenshot, cb);
 }
 
